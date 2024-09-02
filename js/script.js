@@ -49,8 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle gender selection
     document.querySelectorAll('.gender-selection .option').forEach(option => {
         option.addEventListener('click', function () {
-            ageSelection.style.display = 'block';
-            genderSelection.style.display = 'none';
+            showSection(ageSelection);
             advanceProgressBar(10); // Avança 10% ao selecionar gênero
         });
     });
@@ -58,31 +57,27 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle age selection
     document.querySelectorAll('.age-options .option').forEach(option => {
         option.addEventListener('click', function () {
-            successStory.style.display = 'block';
-            ageSelection.style.display = 'none';
+            showSection(successStory);
             advanceProgressBar(10); // Avança 10% ao selecionar idade
         });
     });
 
     // Handle continue button in success story
     document.getElementById('continue-to-results').addEventListener('click', function () {
-        results.style.display = 'block';
-        successStory.style.display = 'none';
+        showSection(results);
         advanceProgressBar(10); // Avança 10% ao clicar para continuar
     });
 
     // Handle continue button in results
     document.getElementById('continue-final').addEventListener('click', function () {
-        reasons.style.display = 'block';
-        results.style.display = 'none';
+        showSection(reasons);
         advanceProgressBar(10); // Avança 10% ao clicar para continuar
     });
 
     // Handle reason selection
     document.querySelectorAll('.reasons .option-button').forEach(button => {
         button.addEventListener('click', function () {
-            relationshipProfile.style.display = 'block';
-            reasons.style.display = 'none';
+            showSection(relationshipProfile);
             advanceProgressBar(10); // Avança 10% ao selecionar motivo
         });
     });
@@ -90,8 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle relationship profile selection
     document.querySelectorAll('.relationship-profile .option-button').forEach(button => {
         button.addEventListener('click', function () {
-            relationshipImprovements.style.display = 'block';
-            relationshipProfile.style.display = 'none';
+            showSection(relationshipImprovements);
             advanceProgressBar(10); // Avança 10% ao selecionar perfil
         });
     });
@@ -99,8 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle relationship improvements selection
     document.querySelectorAll('.relationship-improvements .option-button').forEach(button => {
         button.addEventListener('click', function () {
-            previousAttempts.style.display = 'block';
-            relationshipImprovements.style.display = 'none';
+            showSection(previousAttempts);
             advanceProgressBar(10); // Avança 10% ao selecionar melhorias
         });
     });
@@ -108,24 +101,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle previous attempts selection
     document.querySelectorAll('.previous-attempts .option-button').forEach(button => {
         button.addEventListener('click', function () {
-            ninthSection.style.display = 'block';
-            previousAttempts.style.display = 'none';
+            showSection(ninthSection);
             advanceProgressBar(10); // Avança 10% ao selecionar tentativas anteriores
         });
     });
 
     // Handle continue button in ninth section
     document.getElementById('continue-to-final').addEventListener('click', function () {
-        recurringThoughts.style.display = 'block';
-        ninthSection.style.display = 'none';
+        showSection(recurringThoughts);
         advanceProgressBar(10); // Avança 10% ao clicar para continuar
     });
 
     // Handle recurring thoughts selection
     document.querySelectorAll('.recurring-thoughts .option-button').forEach(button => {
         button.addEventListener('click', function () {
-            negativeEnergies.style.display = 'block';
-            recurringThoughts.style.display = 'none';
+            showSection(negativeEnergies);
             advanceProgressBar(10); // Avança 10% ao selecionar pensamentos recorrentes
         });
     });
@@ -133,8 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Handle negative energies selection
     document.querySelectorAll('.negative-energies .option-button').forEach(button => {
         button.addEventListener('click', function () {
-            futureDesired.style.display = 'block';
-            negativeEnergies.style.display = 'none';
+            showSection(futureDesired);
             advanceProgressBar(10); // Avança 10% ao selecionar energias negativas
         });
     });
@@ -148,12 +137,10 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => {
                 progressBar.style.width = '100%';
                 calculatingText.style.display = 'none';
-                chanceResult.style.display = 'block';
-            }, 3000); // Simulating the calculation delay
+                showSection(reconquestChance);
+                advanceProgressBar(10); // Avança 10% ao selecionar futuro desejado
+            }, 3000); // Simulando o atraso do cálculo
             futureDesired.style.display = 'none';
-            advanceProgressBar(10); // Avança 10% ao selecionar futuro desejado
         });
     });
-
-    // Event handlers for form submission if needed
 });
